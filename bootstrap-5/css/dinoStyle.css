@@ -1,0 +1,19 @@
+@charset "utf-8";
+body{
+  background-color: #afd6ff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+p{
+  font-size: 30px;
+}
+h1{
+  font-weight: bold;
+}
+button>img{
+  height: 200px;
+  width: 200px;
+}
+button{
+  border-radius: 50%;
+}
