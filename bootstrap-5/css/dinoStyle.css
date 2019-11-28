@@ -11,8 +11,8 @@ h1{
   font-weight: bold;
 }
 button>img{
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
 }
 button{
   border-radius: 50%;
