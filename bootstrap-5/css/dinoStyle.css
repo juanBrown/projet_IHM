@@ -11,16 +11,25 @@ h1{
   font-weight: bold;
 }
 
-button>img{
+#main button>img{
   height: 200px;
   width: 200px;
 }
-button{
+#main button{
   background: transparent;
   border-radius: 40%;
   float: right;
 
 }
+
+.modal button>img{
+  height: 100px;
+  width: 100px;
+}
+.modal button{
+  border-radius: 50%;
+}
+
 
 #main >.container-fluid>.row:first-child img{
   height: 90px;
