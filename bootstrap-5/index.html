@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dinoseaure</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!----ici js---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!----ici les css---->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!----ici notre css---->
+    <link href="./css/dinoStyle.css" rel="stylesheet"/>
+    <!----ici la police---->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body id="main">
+<div class="container-fluid">
+        <div class="row">
+            <div id="lang" class="col-md-12">
+                <button><img src="img/frenchButton.png" onclick="changeLangue('fr')"/></button>
+                <button><img src="img/englishButton.png" onclick="changeLangue('en')"/> </button>
+                <div id="gif">
+                    <img  src="./img/dinosaure-image-animee-0035.gif">
+                </div>
+            </div>
+        </div>
+
+        <div id="information"  class="row">
+            <div id="instruction" class="col-md-12"></div>
+        </div>
+
+        <div class="dino_1" class="row">
+            <div class="dinosaureSquelette"class="col-md-12">
+              <img class="dinosaure" src="./img/image.jpg"  onclick="animation();">
+            </div>
+            <div class="dinosaureReel" class="col-md-12">
+              <img class="dinosaure" src="./img/dmytro-teslenko-t-rex-001.jpg"  onclick="animation();">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(1)">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(2)">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(3)">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(4)">
+            </div>
+        </div>
+      <!--  <div class="dino_2" class="row">
+            <div id="dinosaureSquelette"class="col-md-12">
+                <img class="dinosaure" src="./img/image.jpg"  onclick="animation();">
+            </div>
+            <div id="dinosaureReel" class="col-md-12">
+                <img class="dinosaure" src="./img/dmytro-teslenko-t-rex-001.jpg"  onclick="animation();">
+                <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(1)">
+                <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(2)">
+                <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(3)">
+                <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(4)">
+            </div>
+        </div>-->
+
+        <div class="row" id="videoPlayer">
+            <div class="col-md-12">
+                <img src="img/cancel.png" onclick="fermerLonglet();"/>
+            </div>
+        </div>
+
+    <!----ici notre js---->
+    <script src="./js/dinosaure.js"></script>
+</div>
+</body>
+</html>
