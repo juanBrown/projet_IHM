@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!----ici js---->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!----ici les css---->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!----ici notre css---->
+    <link href="../css/dinoStyle.css" rel="stylesheet"/>
+    <link href="../css/loginStyle.css" rel="stylesheet"/>
+    <!----ici la police---->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#modal').modal('show');
+    });
+</script>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Select language</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="submitModal" action="login.html" method="get">
+                    <div class="row">
+                        <div class="col-6">
+                           <button data-dismiss="modal" type="submit" value="us"><img src="../img/englishButton.png" alt=""/> </button>
+                       </div>
+                        <button data-dismiss="modal" type="submit" value="fr"><img src="../img/frenchButton.png"  alt=""/></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $('#submitModal').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "login.html", //this is the submit URL
+                type: 'GET', //or POST
+                data: $('#submitModal').serialize(),
+                success: function(data){
+                    alert('successfully submitted')
+                }
+            });
+        });
+    });
+</script>
+<div class="container center_div">
+    <div class="login-form d-flex align-items-center">
+        <form action="index.html" method="post">
+            <h2 class="text-center">Log in</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block bg-dark">Visit !</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
