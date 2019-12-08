@@ -10,10 +10,123 @@ p{
 h1{
   font-weight: bold;
 }
+
 button>img{
   height: 200px;
   width: 200px;
 }
 button{
-  border-radius: 50%;
+  background: transparent;
+  border-radius: 40%;
+  float: right;
+
+}
+
+#main >.container-fluid>.row:first-child img{
+  height: 90px;
+  width: 90px;
+}
+
+
+#main{
+  background: url("../img/bloggif_5ddf96e9dec44.png") no-repeat;
+  background-size: cover;
+  height: 816px;
+}
+
+#quiz{
+  background-color: #34ce57;
+  border: #34ce57;
+}
+
+#videoPlayer{
+  width: 950px;
+  height: 560px;
+  background: #1b1e21;
+  position: absolute;
+  left: 51px;
+  bottom: 120px;
+  -moz-box-shadow: 1px 1px 15px 10px #aaa;
+  -webkit-box-shadow: 1px 1px 15px 10px #aaa;
+  box-shadow: 1px 1px 15px 10px #17a2b8;
+}
+
+#videoPlayer img{
+  float: right;
+  margin-top: 5px;
+  margin-right: -7px;
+  height: 35px;
+  width: 35px;
+}
+.dinosaure{
+  width:950px;
+  position: absolute;
+  bottom: 80px;
+  left: 35px;
+}
+.dinosaureReel .dinosaure{
+  bottom: 110px;
+}
+.lienVideo{
+  height: 40px;
+  width: 40px;
+  position: relative;
+}
+
+img:nth-of-type(2){
+   bottom : 220px;
+   left: 100px;
+}
+
+img:nth-of-type(3){
+  bottom : 120px;
+  left: 470px;
+}
+img:nth-of-type(4){
+  bottom : 335px;
+  left: 420px;
+}
+img:nth-of-type(5){
+  bottom : 365px;
+  left: 670px;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+  }
+  to   {
+    margin-left: 100%;
+  }
+}
+
+
+#gif img {
+  position: absolute;
+  margin-top: 80px;
+  animation: 5s linear 1s infinite running slidein;;
+  -webkit-animation: 5s linear 1s infinite running slidein;
+
+}
+
+#instruction{
+  margin-top: 70px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 5px 3px 4px #0b2e13  , 0 0 1em black, 0 0 0.2em #218838;
+}
+
+#instruction h1{
+  text-align: center;
+  padding-bottom: 50px;
+}
+#instruction p{
+  padding: 0 50px;
+}
+
+#instruction > .btn{
+  margin-top: 60px;
+  margin-right: 5px;
+  font-weight:bold;
+  font-size: 1.5rem;
 }
