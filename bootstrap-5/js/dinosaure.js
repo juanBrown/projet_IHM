@@ -2,17 +2,24 @@ var mainMessage= {
     'fr': [
                 "Bienvenu à vous !",
                 ["Tout au long de cette visite vous allez découvrir un monde étonnant, qui aujoud'huit n'existe plus.",
-                    "Pour commencer l'immersion cliquer sur la page suivante",
-                    "Déclenchez l'annimation en cliquant sur le dinosaure",
-                    "Pour accèder aux videos du dinosaure cliquez sur les liens"],
+                "Pour commencer l'immersion cliquer sur la page suivante",
+                "Déclenchez l'annimation en cliquant sur le dinosaure",
+                "Pour accèder aux videos du dinosaure cliquez sur les liens"],
+                ["Faites votre choix",
+                "Vous pouvez désormais faire le quizz ou passer au dinosaure suivant !",
+                "Faire le quiz"],
                 "Suivant"
-            ],
+          ],
+
     'en': [
                 "Welcome to you !",
                 ["Throughout this visit you will discover an astonishing world, which  no longer exists today.",
                 "To start the immersion click on the following page",
                 "Trigger the annimation by clicking on the dinosaur",
                 "To access the videos of the dinosaur click on the links"],
+                ["Make your choice",
+                "You can do the quiz now or move on to the next dinosaur !",
+                "Do the quiz"],
                 "Next"
           ]
 
@@ -20,20 +27,23 @@ var mainMessage= {
 
 
 
-
+var video=[];
+var lang=getParamUrl('lang');
+var numDino=1;
+chargementPage();
 
 function animation(){
-    $(".dinosaureSquelette").hide();
+    afficheCache(".dinosaureSquelette",false,true);
     $(".dinosaureReel").fadeIn("slow");
     afficheCache("lang",false);
+    numDino++;
 
 }
 
-var video=[];
-function affichePlayer(e){
-    afficheCache("lang",false);
-    afficheCache("videoPlayer",true);
 
+function afficheLecteur(e){
+    afficheCache("lang");
+    afficheCache("videoPlayer",true);
     var nbrLiens=$(".lienVideo").length;
 
     var pos=video.indexOf(e);
@@ -41,7 +51,11 @@ function affichePlayer(e){
         video.push(e);
     }
     if(video.length===nbrLiens){
-        quiz();
+        document.querySelector("#videoPlayer img").addEventListener('click',function () {
+            fermerLonglet();
+            afficheCache(".dinosaureReel",false,true);
+            afficheCacheQuiz(true);
+        });
     }
 
 }
@@ -50,18 +64,16 @@ function affichePlayer(e){
 function fermerLonglet() {
     afficheCache("videoPlayer",false);
 }
-function quiz() {
 
-}
-function afficheCache(e,v,s){
-    var x= "hidden";
+function afficheCache(e,v=false,s=false){
+    var x= "none";
     if(v==true){
-        x="visible";
+        x="block";
     }
-    if(s==null){
-        document.getElementById(e).style.visibility=x;
+    if(!s){
+        document.getElementById(e).style.display=x;
     }else{
-        document.querySelector(e).style.visibility=x;
+        document.querySelector(e).style.display=x;
     }
 
 }
@@ -70,7 +82,7 @@ function getParamUrl(e){
     var urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(e);
 }
-var lang=getParamUrl('lang');
+
 
 function changeLangue(e){
     if(e==='en'| e==='fr') {
@@ -80,14 +92,10 @@ function changeLangue(e){
 }
 
 
-afficheInstuction();
 
 function afficheInstuction(){
 
-    $(".dinosaureReel").hide();
-    fermerLonglet();
-
-    afficheCache("div[class^='dino_']",false,true);
+    document.querySelector("html").setAttribute("lang",lang);
 
     document.getElementById("instruction").innerHTML=
         "<h1>"+mainMessage[lang][0]+"</h1>";
@@ -98,13 +106,49 @@ function afficheInstuction(){
     }
 
     document.getElementById("instruction").innerHTML+=
-            "<button type=\'button\' class=\'btn btn-success\' >"+mainMessage[lang][2]+"</button>";
+            "<button type=\'button\' class=\'btn btn-success\' >"+mainMessage[lang][3]+"</button>";
 
 
     document.querySelector('#instruction > .btn').addEventListener('click',function () {
-        afficheCache("lang",false);
-        afficheCache("information",false);
+        afficheCache("lang");
+        afficheCache("information");
         afficheCache("div[class^='dino_']",true,true);
     })
+
 }
 
+function afficheCacheQuiz(v=false){
+    $("#exampleModalCenter").modal("hide");
+    if(v==true){
+        $("#exampleModalCenter").modal("show");
+        langQuiz();
+    }
+  // afficheCache("#lancerQuiz",v,true);
+}
+
+function langQuiz(){
+    document.querySelector(".modal-title").innerHTML=mainMessage[lang][2][0];
+    document.querySelector(".modal-body").innerHTML=mainMessage[lang][2][1];
+    document.querySelector(".btn-primary").innerHTML=mainMessage[lang][2][2];
+    document.querySelector(".btn-success").innerHTML=mainMessage[lang][3];
+}
+
+function quiz(numDino) {
+    window.location.href="page/quiz.php?lang="+lang+"&nom="+nom+"&dino="+numDino;
+}
+
+function chargementPage(){
+    afficheCacheQuiz();
+    afficheCache(".dinosaureReel",false,true);
+    fermerLonglet();
+    afficheCache("div[class^='dino_']",false,true);
+    afficheInstuction();
+
+    document.querySelector(".modal .btn-primary").addEventListener('click',function () {
+        quiz(numDino);
+    });
+    document.querySelector(".modal .btn-success").addEventListener('click',function () {
+        animation();
+    });
+
+}

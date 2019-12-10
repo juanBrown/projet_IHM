@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="">
 <head>
     <meta charset="utf-8">
     <title>Dinoseaure</title>
@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body id="main">
-<div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row main-child">
             <div id="lang" class="col-md-12">
                 <button><img src="img/frenchButton.png" onclick="changeLangue('fr')"/></button>
                 <button><img src="img/englishButton.png" onclick="changeLangue('en')"/> </button>
@@ -28,28 +28,28 @@
             </div>
         </div>
 
-        <div id="information"  class="row">
+        <div id="information"  class="row main-child">
             <div id="instruction" class="col-md-12"></div>
         </div>
 
-        <div class="dino_1" class="row">
+        <div class="dino_1" class="row main-child">
             <div class="dinosaureSquelette"class="col-md-12">
               <img class="dinosaure" src="./img/image.jpg"  onclick="animation();">
             </div>
             <div class="dinosaureReel" class="col-md-12">
-              <img class="dinosaure" src="./img/dmytro-teslenko-t-rex-001.jpg"  onclick="animation();">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(1)">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(2)">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(3)">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(4)">
+              <img class="dinosaure" src="./img/dmytro-teslenko-t-rex-001.jpg" >
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(1)">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(2)">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(3)">
+               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(4)">
             </div>
         </div>
-      <!--  <div class="dino_2" class="row">
-            <div id="dinosaureSquelette"class="col-md-12">
-                <img class="dinosaure" src="./img/image.jpg"  onclick="animation();">
+     <!-- <div class="dino_2" class="row main-child">
+            <div class="dinosaureSquelette"class="col-md-12">
+                <img class="dinosaure" src="./img/20269988.jpg"  onclick="animation();">
             </div>
-            <div id="dinosaureReel" class="col-md-12">
-                <img class="dinosaure" src="./img/dmytro-teslenko-t-rex-001.jpg"  onclick="animation();">
+            <div class  ="dinosaureReel" class="col-md-12">
+                <img class="dinosaure" src="./img/Camarasaurus-Paul-Heaston1_f596.jpg">
                 <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(1)">
                 <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(2)">
                 <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="affichePlayer(3)">
@@ -57,14 +57,35 @@
             </div>
         </div>-->
 
-        <div class="row" id="videoPlayer">
-            <div class="col-md-12">
-                <img src="img/cancel.png" onclick="fermerLonglet();"/>
+        <!-- Modal Quizz ou dino suivant-->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Choix</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Possibiliter de faire le quiz
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Faire le quizz</button>
+                            <button type="button" class="btn btn-success">Suivant</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-    <!----ici notre js---->
-    <script src="./js/dinosaure.js"></script>
-</div>
+        <div class="row" id="videoPlayer">
+            <div class="col-md-12">
+                <button type="button"><img src="img/cancel.png" onclick="fermerLonglet();"/>    </button>
+            </div>
+        </div>
+
+        <!----ici notre js---->
+         <script src="./js/dinosaure.js"></script>
+    </div>
 </body>
 </html>
