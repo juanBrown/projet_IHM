@@ -73,7 +73,7 @@
     document.querySelector("#submitModal .col-4 button").addEventListener('click',function () {
         lang+='fr';
     });
-    document.getElementById("name").addEventListener('input',function () {
+    document.getElementById("name").addEventListener('change',function () {
         document.querySelector(".btn-primary").addEventListener('click',function () {
             if(lang.length!==0){
                 var name =document.getElementById("name").value;

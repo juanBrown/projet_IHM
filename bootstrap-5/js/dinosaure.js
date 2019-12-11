@@ -1,9 +1,9 @@
 var mainMessage= {
     'fr': [
-                "Bienvenu à vous !",
-                ["Tout au long de cette visite vous allez découvrir un monde étonnant, qui aujoud'huit n'existe plus.",
+                "Bienvenue à vous !",
+                ["Tout au long de cette visite vous allez découvrir un monde étonnant, qui aujourd'hui n'existe plus.",
                 "Pour commencer l'immersion cliquer sur la page suivante",
-                "Déclenchez l'annimation en cliquant sur le dinosaure",
+                "Déclenchez l'animation en cliquant sur le dinosaure",
                 "Pour accèder aux videos du dinosaure cliquez sur les liens"],
                 ["Faites votre choix",
                 "Vous pouvez désormais faire le quizz ou passer au dinosaure suivant !",
@@ -15,7 +15,7 @@ var mainMessage= {
                 "Welcome to you !",
                 ["Throughout this visit you will discover an astonishing world, which  no longer exists today.",
                 "To start the immersion click on the following page",
-                "Trigger the annimation by clicking on the dinosaur",
+                "Trigger the animation by clicking on the dinosaur",
                 "To access the videos of the dinosaur click on the links"],
                 ["Make your choice",
                 "You can do the quiz now or move on to the next dinosaur !",
@@ -30,7 +30,6 @@ var mainMessage= {
 } ;
 
 
-//window.location.href="page/login.html";
 var video=[];
 var lang=getParamUrl('lang');
 var numDino=1;
@@ -40,8 +39,6 @@ function animation(){
     afficheCache("dinoSquelette");
     $("#dinoReel").fadeIn("slow");
     afficheCache("lang",false);
-    numDino++;
-
 }
 
 
@@ -67,6 +64,7 @@ function afficheLecteur(e){
 
 function fermerLonglet() {
     afficheCache("videoPlayer",false);
+    document.querySelector("#videoPlayer iframe").setAttribute("src","");
 }
 
 function afficheCache(e,v=false,s=false){
@@ -142,17 +140,41 @@ function quiz(numDino) {
 }
 
 function chargementPage(){
+    if(lang==null){
+        window.location.href="page/login.html";
+    }
+
     afficheCacheQuiz();
     afficheCache("dinoReel");
     afficheCache("dinosaure");
     fermerLonglet();
     afficheInstuction();
+    changeDino(mainMessage['dino']['squelette'][numDino-1],mainMessage['dino']['reel'][numDino-1]);
 
     document.querySelector(".modal .btn-primary").addEventListener('click',function () {
         quiz(numDino);
     });
-    document.querySelector(".modal .btn-success").addEventListener('click',function () {
-        animation();
-    });
 
+    document.querySelector(".modal .btn-success").addEventListener('click',function () {
+        changeDino(mainMessage['dino']['squelette'][numDino-1],mainMessage['dino']['reel'][numDino-1],true);
+        $(".modal").modal('hide');
+        video=[];
+      //  animation();
+    });
+}
+
+function changeDino(imgSquelette,imgReel,affiche=false){
+    var urlSqueltte='./img/'+imgSquelette;
+    var urlReel='./img/'+imgReel;
+    document.querySelector("#dinoSquelette .dino").setAttribute("src",urlSqueltte);
+    document.querySelector("#dinoReel .dino").setAttribute("src",urlReel);
+
+    if(mainMessage['dino']['squelette'].length >= numDino){
+        numDino++;
+    }
+
+    if(affiche===true){
+        afficheCache("dinosaure",true);
+        afficheCache("dinoSquelette",true);
+    }
 }

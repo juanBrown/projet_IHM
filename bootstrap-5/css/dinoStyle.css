@@ -67,10 +67,12 @@ button{
 }
 .dino{
   width:950px;
+  height:540px;
   position: relative;
   top: 120px;
   left: 35px;
 }
+
 #dinoReel .dino{
   bottom: 110px;
 }
