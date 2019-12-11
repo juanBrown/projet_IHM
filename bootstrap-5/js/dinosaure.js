@@ -21,20 +21,24 @@ var mainMessage= {
                 "You can do the quiz now or move on to the next dinosaur !",
                 "Do the quiz"],
                 "Next"
-          ]
+          ],
+    'dino':{
+            'squelette':["image.jpg","20269988.jpg"],
+            'reel': ["dmytro-teslenko-t-rex-001.jpg","Camarasaurus-Paul-Heaston1_f596.jpg"]
+            }
 
 } ;
 
 
-
+//window.location.href="page/login.html";
 var video=[];
 var lang=getParamUrl('lang');
 var numDino=1;
 chargementPage();
 
 function animation(){
-    afficheCache(".dinosaureSquelette",false,true);
-    $(".dinosaureReel").fadeIn("slow");
+    afficheCache("dinoSquelette");
+    $("#dinoReel").fadeIn("slow");
     afficheCache("lang",false);
     numDino++;
 
@@ -53,7 +57,7 @@ function afficheLecteur(e){
     if(video.length===nbrLiens){
         document.querySelector("#videoPlayer img").addEventListener('click',function () {
             fermerLonglet();
-            afficheCache(".dinosaureReel",false,true);
+            afficheCache("dinoReel");
             afficheCacheQuiz(true);
         });
     }
@@ -112,7 +116,7 @@ function afficheInstuction(){
     document.querySelector('#instruction > .btn').addEventListener('click',function () {
         afficheCache("lang");
         afficheCache("information");
-        afficheCache("div[class^='dino_']",true,true);
+        afficheCache("dinosaure",true);
     })
 
 }
@@ -129,8 +133,8 @@ function afficheCacheQuiz(v=false){
 function langQuiz(){
     document.querySelector(".modal-title").innerHTML=mainMessage[lang][2][0];
     document.querySelector(".modal-body").innerHTML=mainMessage[lang][2][1];
-    document.querySelector(".btn-primary").innerHTML=mainMessage[lang][2][2];
-    document.querySelector(".btn-success").innerHTML=mainMessage[lang][3];
+    document.querySelector(".modal .btn-primary").innerHTML=mainMessage[lang][2][2];
+    document.querySelector(".modal .btn-success").innerHTML=mainMessage[lang][3];
 }
 
 function quiz(numDino) {
@@ -139,9 +143,9 @@ function quiz(numDino) {
 
 function chargementPage(){
     afficheCacheQuiz();
-    afficheCache(".dinosaureReel",false,true);
+    afficheCache("dinoReel");
+    afficheCache("dinosaure");
     fermerLonglet();
-    afficheCache("div[class^='dino_']",false,true);
     afficheInstuction();
 
     document.querySelector(".modal .btn-primary").addEventListener('click',function () {

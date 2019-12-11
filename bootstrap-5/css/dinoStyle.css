@@ -65,13 +65,13 @@ button{
 #lang button{
   padding: 2px;
 }
-.dinosaure{
+.dino{
   width:950px;
-  position: absolute;
-  bottom: 80px;
+  position: relative;
+  top: 120px;
   left: 35px;
 }
-.dinosaureReel .dinosaure{
+#dinoReel .dino{
   bottom: 110px;
 }
 .lienVideo{
@@ -81,20 +81,20 @@ button{
 }
 
 img:nth-of-type(2){
-   bottom : 285px;
+   top : 400px;
    left: 100px;
 }
 
 img:nth-of-type(3){
-  bottom : 170px;
+  top : 310px;
   left: 540px;
 }
 img:nth-of-type(4){
-  bottom : 415px;
-  left: 485px;
+  top : 500px;
+  left: 540px;
 }
 img:nth-of-type(5){
-  bottom : 465px;
+  top : 265px;
   left: 770px;
 }
 

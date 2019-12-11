@@ -24,14 +24,11 @@
     border-radius: 50%;
 }
 
-.btn {
-    font-size: 15px;
-    font-weight: bold;
+#form{
+    background: #e2e3e5;
+    width: 300px;
+    height: 200px;
 }
-
-body {
-    display:flex;
-}
-form {
-    margin:auto;
+.form-group{
+    padding: 0 30px;
 }
