@@ -47,8 +47,6 @@ button{
   position: absolute;
   left: 51px;
   bottom: 120px;
-  -moz-box-shadow: 1px 1px 15px 10px #aaa;
-  -webkit-box-shadow: 1px 1px 15px 10px #aaa;
   box-shadow: 1px 1px 15px 10px #17a2b8;
 }
 
@@ -76,28 +74,11 @@ button{
 #dinoReel .dino{
   bottom: 110px;
 }
-.lienVideo{
+#videos img{
   height: 40px;
   width: 40px;
-  position: absolute;
-}
-
-img:nth-of-type(2){
-   top : 400px;
-   left: 100px;
-}
-
-img:nth-of-type(3){
-  top : 310px;
-  left: 540px;
-}
-img:nth-of-type(4){
-  top : 500px;
-  left: 540px;
-}
-img:nth-of-type(5){
-  top : 265px;
-  left: 770px;
+  position: relative;
+  opacity: 0.8;
 }
 
 @keyframes slidein {
@@ -110,12 +91,31 @@ img:nth-of-type(5){
 }
 
 
-#gif img {
+#gif>img {
   position: absolute;
-  margin-top: 80px;
-  animation: 5s linear 1s infinite running slidein;;
-  -webkit-animation: 5s linear 1s infinite running slidein;
+}
 
+#lang #gif>img:first-child{
+  margin-top: 80px;
+  animation: 5s linear 1s infinite running slidein;
+  -webkit-animation: 5s linear 1s infinite running slidein;
+}
+
+#lang #gif>img:nth-child(2) {
+  margin-top: 90px;
+  animation: 6s linear 2s infinite running slidein;
+  -webkit-animation: 6s linear 2s infinite running slidein;
+  height: 120px;
+  width: 40px;
+}
+
+
+#lang #gif>img:nth-child(3) {
+  margin-top: 130px;
+  animation: 7s linear 2s infinite running slidein;
+  -webkit-animation: 7s linear 2s infinite running slidein;
+  height: 120px;
+  width: 60px;
 }
 
 #instruction{
@@ -138,4 +138,13 @@ img:nth-of-type(5){
   margin-right: 5px;
   font-weight:bold;
   font-size: 1.5rem;
+}
+#instruction .btn-success{
+  background: linear-gradient(0.25turn, #28a745, #28a745, #8fd19e);
+  font-size: 2.3rem ;
+  margin-right: 15px;
+  margin-top: 80px;
+  text-shadow: 0 0 0.1em #0b2e13;
+  border: 0;
+
 }

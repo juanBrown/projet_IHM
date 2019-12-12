@@ -24,12 +24,18 @@
                 <button><img src="img/englishButton.png" onclick="changeLangue('en')"/> </button>
                 <div id="gif">
                     <img  src="./img/dinosaure-image-animee-0035.gif">
+                    <img  src="./img/dinosaure-image-animee-0035.gif">
+                    <img  src="./img/dinosaure-image-animee-0035.gif">
                 </div>
             </div>
         </div>
 
         <div id="information"  class="row main-child">
-            <div id="instruction" class="col-md-12"></div>
+            <div id="instruction" class="col-md-12">
+                <h1>Bienvenue</h1>
+                <p>Informations</p>
+                <button type="button" class="btn btn-success">Suivant</button>
+            </div>
         </div>
 
         <div id="dinosaure" class="row main-child">
@@ -37,11 +43,12 @@
               <img class="dino" src=""  onclick="animation();">
             </div>
             <div id="dinoReel" class="col-md-12">
-              <img class="dino" src="" >
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(1)">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(2)">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(3)">
-               <img class="lienVideo" src="./img/tyrannosaurus-rex.png" onclick="afficheLecteur(4)">
+                <img class="dino" src="" >
+                <div id="videos" class="row">
+                    <div class="col col-md-12">
+                     Lien video
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -69,7 +76,7 @@
         <div class="row" id="videoPlayer">
             <div class="col-md-12">
                 <button type="button"><img src="img/cancel.png" onclick="fermerLonglet();"/>    </button>
-                <iframe width="900" height="500" src="https://www.youtube.com/embed/ZqWGbMUsLug" frameborder="0"
+                <iframe width="900" height="500" src="" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
